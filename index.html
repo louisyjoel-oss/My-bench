@@ -3474,7 +3474,7 @@ function App() {
     // 8. GESTION DU PSEUDO
     // ============================================================
     async function isPseudoAvailable(pseudoToCheck) {
-        const { data, error } = await db.from('profiles').select('pseudo').eq('pseudo', pseudoToCheck).maybeSingle();
+        const { data: available, error } = await db.rpc('is_pseudo_available', { candidate: pseudoToCheck });
         if (error) {
             console.error('Erreur vérification pseudo:', error);
             return false;
