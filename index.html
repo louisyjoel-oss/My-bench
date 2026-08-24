@@ -3479,7 +3479,7 @@ function App() {
             console.error('Erreur vérification pseudo:', error);
             return false;
         }
-        return !data;
+        return available === true;
     }
     async function handlePseudoChange(newPseudo) {
         setPseudo(newPseudo);
